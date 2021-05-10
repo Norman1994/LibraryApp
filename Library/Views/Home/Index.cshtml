@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Library.ViewModels.BooksViewModel>
+@{
+    ViewBag.Title = "Библиотека";
+}
+<a asp-action="Create">Добавить книгу</a>
+<table class="table">
+    <tr><td>Название</td><td>Автор</td></tr>
+    @foreach (var book in Model)
+    { 
+
+            <tr>
+                <td>@book.Name</td>
+                <td>@book.AuthorName</td>
+                <td>
+                    <a asp-action="Details" asp-controller="Home" asp-route-id="@book.IdBook">Подробнее</a> |
+                    <a asp-action="Edit" asp-controller="Home" asp-route-id="@book.IdBook">Изменить</a>
+                </td>
+            </tr>
+    }
+</table>
