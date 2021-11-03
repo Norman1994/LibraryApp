@@ -105,6 +105,7 @@ namespace Library.Controllers
 
             var model = new BooksViewModel()
             {
+                IdBook = (Guid)id,
                 Name = books.name,
                 Authors = authorsList
             };
@@ -113,27 +114,25 @@ namespace Library.Controllers
         }
             
         [HttpPost]
-        public IActionResult Edit(Books book)
+        public async Task<IActionResult> Edit(BooksViewModel model, Guid? id)
         {
-            db.Book.Update(book);
-            db.SaveChangesAsync();
-            return RedirectToAction("Index");
+
+            if (ModelState.IsValid)
+            {
+                Books book = db.Book.Where(x => x.id == id).FirstOrDefault();
+
+                book.name = model.Name;
+                book.author_id = model.AuthorId;
+
+                db.Book.Update(book);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return View(model);
+
         }
 
         [HttpGet]
-        [ActionName("Delete")]
-        public async Task<IActionResult> ConfirmDelete(Guid? id)
-        {
-            if (id != null)
-            {
-                Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
-                if (books != null)
-                return View(books);
-            }
-            return NotFound();
-        }
-
-        [HttpPost]
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id != null)
