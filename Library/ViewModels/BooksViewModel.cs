@@ -1,4 +1,5 @@
 ﻿using Library.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,6 @@ namespace Library.ViewModels
         public Guid AuthorId { get; set; }
         public string AuthorName { get; set; }
 
-        public Authors Authors { get; set; }
+        public List<Authors> Authors { get; set; }
     }
 }

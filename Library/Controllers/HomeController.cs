@@ -14,51 +14,73 @@ namespace Library.Controllers
 {
     public class HomeController : Controller
     {
-            private ApplicationContext db;
+        private ApplicationContext db;
 
-            public HomeController(ApplicationContext context)
+        public HomeController(ApplicationContext context)
+        {
+            db = context;
+        }
+        public IActionResult Index()
+        {
+            var authors = db.Author.ToList();
+            var books = db.Book.ToList();
+
+            var table = from a in books
+                                join b in authors on a.author_id equals b.author_id
+                                select new BooksViewModel()
+                                {
+                                    IdBook = a.id,
+                                    Name = a.name,
+                                    AuthorName = b.first_name + " " + b.last_name
+                                };
+
+            return View(table);
+        }
+
+        public IActionResult Create()
+        {
+            BooksViewModel model = new BooksViewModel();
+
+            List<Authors> authorsList = new List<Authors>();
+
+            authorsList = (from author in db.Author
+                           select author).ToList();
+
+            model.Authors = authorsList;
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(BooksViewModel model)
+        {
+            Books book = await db.Book.FirstOrDefaultAsync(u => u.id == model.IdBook);
+
+            if (ModelState.IsValid)
             {
-                db = context;
+                book = new Books 
+                { 
+                    id = Guid.NewGuid(), 
+                    name = model.Name, 
+                    author_id = model.AuthorId 
+                };
+
+                db.Book.Add(book);
+                await db.SaveChangesAsync();
+                return RedirectToAction("Index");
             }
-            public IActionResult Index()
+
+            return View(model);
+        }
+
+        public IActionResult Details(Guid? id)
+        {
+            if (id != null)
             {
                 var authors = db.Author.ToList();
                 var books = db.Book.ToList();
 
                 var table = from a in books
-                            join b in authors on a.author_id equals b.author_id
-                            select new BooksViewModel()
-                            {
-                                IdBook = a.id,
-                                Name = a.name,
-                                AuthorName = b.first_name + " " + b.last_name
-                            };
-
-                return View(table);
-            }
-
-            public IActionResult Create()
-            {
-                return View();
-            }
-
-            [HttpPost]
-            public async Task<IActionResult> Create(Books books)
-            {
-                books.id = Guid.NewGuid();
-                db.Book.Add(books);
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
-            }
-
-            public IActionResult Details(Guid? id)
-            {
-                if (id != null)
-                {
-                    var authors = db.Author.ToList();
-                    var books = db.Book.ToList();
-
-                    var table = from a in books
                                 join b in authors on a.author_id equals b.author_id
                                 where a.id == id
                                 select new BooksViewModel()
@@ -67,86 +89,63 @@ namespace Library.Controllers
                                     Name = a.name,
                                     AuthorName = b.first_name + " " + b.last_name
                                 };
-                    if (table != null)
+                if (table != null)
                         return View(table);
-                }
-                return NotFound();
             }
+            return NotFound();
+        }
 
-            public async Task<IActionResult> Edit(Guid? id)
+        public async Task<IActionResult> Edit(Guid? id)
+        {
+            Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
+            List<Authors> authorsList = new List<Authors>();
+
+            authorsList = (from author in db.Author
+                           select author).ToList();
+
+            var model = new BooksViewModel()
             {
-                if (id != null)
-                {
-                /*Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
+                Name = books.name,
+                Authors = authorsList
+            };
+
+        return View(model);
+        }
+            
+        [HttpPost]
+        public IActionResult Edit(Books book)
+        {
+            db.Book.Update(book);
+            db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        [ActionName("Delete")]
+        public async Task<IActionResult> ConfirmDelete(Guid? id)
+        {
+            if (id != null)
+            {
+                Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
                 if (books != null)
-                    return View(books);*/
-
-                var authors = db.Author.ToList();
-                var books = db.Book.ToList();
-                /*var table = from a in authors
-                            join b in books on a.author_id equals b.author_id
-                            where b.id == id
-                            select a;*/
-
-                BooksViewModel view = new BooksViewModel();
-                if (authors != null)
-                {
-                    ViewBag.data = new SelectList(authors, "author_id", "first_name", view.Authors.author_id);
-                }
-
-
-                /*var table = from a in books
-                            join b in authors on a.author_id equals b.author_id
-                            where a.id == id
-                            select new BooksViewModel()
-                            {
-                                IdBook = a.id,
-                                Name = a.name,
-                                AuthorId = b.author_id,
-                                AuthorName = b.first_name + " " + b.last_name
-                            };*/
-                    Books book = await db.Book.FirstOrDefaultAsync(p => p.id == id);
-                    if (books != null)
-                        return View(book);
-                }
-
-        
-                return NotFound();
+                return View(books);
             }
-            [HttpPost]
-            public IActionResult Edit(Books book)
+            return NotFound();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(Guid? id)
+        {
+            if (id != null)
             {
-                db.Book.Update(book);
-                db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
+                if (books != null)
+                    db.Book.Remove(books);
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
             }
-
-            [HttpGet]
-            [ActionName("Delete")]
-            public async Task<IActionResult> ConfirmDelete(Guid? id)
-            {
-                if (id != null)
-                {
-                    Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
-                    if (books != null)
-                        return View(books);
-                }
-                return NotFound();
-            }
-
-            [HttpPost]
-            public async Task<IActionResult> Delete(Guid? id)
-            {
-                if (id != null)
-                {
-                    Books books = await db.Book.FirstOrDefaultAsync(p => p.id == id);
-                    if (books != null)
-                        db.Book.Remove(books);
-                        await db.SaveChangesAsync();
-                        return RedirectToAction("Index");
-                }
-                return NotFound();
-            }
+            return NotFound();
         }
     }
+}
 
