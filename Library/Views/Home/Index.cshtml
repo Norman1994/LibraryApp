@@ -3,6 +3,7 @@
     ViewBag.Title = "Библиотека";
 }
 <a asp-action="Create">Добавить книгу</a>
+<a asp-action="AuthorIndex" asp-controller="Author">Список авторов</a>
 <table class="table">
     <tr><td>Название</td><td>Автор</td></tr>
     @foreach (var book in Model)

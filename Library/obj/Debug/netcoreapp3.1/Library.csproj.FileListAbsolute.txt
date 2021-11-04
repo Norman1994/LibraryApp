@@ -55,3 +55,6 @@ C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Library.pdb
 C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Library.genruntimeconfig.cache
 C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Home\Details.cshtml.g.cs
 C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Home\Edit.cshtml.g.cs
+C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorIndex.cshtml.g.cs
+C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Author\AddAuthor.cshtml.g.cs
+C:\Users\User\source\repos\Library\Library\obj\Debug\netcoreapp3.1\Razor\Views\Author\AuthorDetails.cshtml.g.cs

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Library.ViewModels.AuthorsModel>
+
+
+<h2>Список произведений</h2>
+<div>
+            @foreach (var books in Model)
+            {
+                <dl class="dl-horizontal">
+                    <dd>@books.BookName</dd>
+                </dl>
+            }
+</div>
