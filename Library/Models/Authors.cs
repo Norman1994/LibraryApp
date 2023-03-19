@@ -11,9 +11,12 @@ namespace Library.Models
     public class Authors
     {
         [Key]
-        public Guid author_id { get; set; }
-        public string first_name { get; set; }
-        public string last_name { get; set; }
+        [Column("author_id")]
+        public Guid Author_id { get; set; }
+        [Column("first_name")]
+        public string First_name { get; set; }
+        [Column("last_name")]
+        public string Last_name { get; set; }
 
         public List<Books> Books { get; set; } = new List<Books>();
     }

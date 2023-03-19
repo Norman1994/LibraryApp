@@ -25,9 +25,9 @@ namespace Library.Controllers
             var table = from a in authors
                         select new AuthorsModel()
                         {
-                            AuthorId = a.author_id,
-                            FirstName = a.first_name,
-                            LastName = a.last_name
+                            AuthorId = a.Author_id,
+                            FirstName = a.First_name,
+                            LastName = a.Last_name
                         };
 
             return View(table);
@@ -47,9 +47,9 @@ namespace Library.Controllers
 
                 author = new Authors
                 {
-                    author_id = Guid.NewGuid(),
-                    first_name = model.FirstName,
-                    last_name = model.LastName
+                    Author_id = Guid.NewGuid(),
+                    First_name = model.FirstName,
+                    Last_name = model.LastName
                 };
 
                 db.Author.Add(author);
@@ -68,13 +68,13 @@ namespace Library.Controllers
                 var books = db.Book.ToList();
 
                 var authorTable = from a in authors
-                                  join b in books on a.author_id equals b.author_id
-                                  where a.author_id == id
+                                  join b in books on a.Author_id equals b.Author_id
+                                  where a.Author_id == id
                                   select new AuthorsModel()
                                   {
-                                      FirstName = a.first_name,
-                                      LastName = a.last_name,
-                                      BookName = b.name
+                                      FirstName = a.First_name,
+                                      LastName = a.Last_name,
+                                      BookName = b.Name
                                   };
                 if (authorTable != null)
                     return View(authorTable);

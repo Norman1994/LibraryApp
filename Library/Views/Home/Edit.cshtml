@@ -15,7 +15,7 @@
             <label asp-for="AuthorId">Выберите автора</label>
             <select asp-for="AuthorId"
                     class="form-control"
-                    asp-items="@(new SelectList(Model.Authors,"author_id", "last_name"))">
+                    asp-items="@(new SelectList(Model.Authors,"Author_id", "Last_name"))">
             </select>
         </div>
         <div>
