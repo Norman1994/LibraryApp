@@ -681,19 +681,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\KazinDA\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\LibraryApp\\Library\\Library.csproj",
+      "projectUniqueName": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library\\Library.csproj",
       "projectName": "Library",
-      "projectPath": "C:\\Users\\User\\Desktop\\LibraryApp\\Library\\Library.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\LibraryApp\\Library\\obj\\",
+      "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library\\Library.csproj",
+      "packagesPath": "C:\\Users\\KazinDA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KazinDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -705,7 +705,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -717,7 +716,6 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Npgsql.EntityFrameworkCore.PostgreSQL": {
             "target": "Package",
@@ -742,7 +740,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

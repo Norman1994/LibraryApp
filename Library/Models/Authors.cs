@@ -12,11 +12,11 @@ namespace Library.Models
     {
         [Key]
         [Column("author_id")]
-        public Guid Author_id { get; set; }
+        public Guid AuthorId { get; set; }
         [Column("first_name")]
-        public string First_name { get; set; }
+        public string FirstName { get; set; }
         [Column("last_name")]
-        public string Last_name { get; set; }
+        public string LastName { get; set; }
 
         public List<Books> Books { get; set; } = new List<Books>();
     }

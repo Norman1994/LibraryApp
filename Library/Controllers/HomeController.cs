@@ -26,12 +26,12 @@ namespace Library.Controllers
             var books = db.Book.ToList();
 
             var table = from a in books
-                                join b in authors on a.Author_id equals b.Author_id
+                                join b in authors on a.AuthorId equals b.AuthorId
                                 select new BooksViewModel()
                                 {
                                     IdBook = a.Id,
                                     Name = a.Name,
-                                    AuthorName = b.First_name + " " + b.Last_name
+                                    AuthorName = b.FirstName + " " + b.LastName
                                 };
 
             return View(table);
@@ -60,11 +60,12 @@ namespace Library.Controllers
 
             if (ModelState.IsValid)
             {
-                book = new Books 
-                { 
-                    Id = Guid.NewGuid(), 
-                    Name = model.Name, 
-                    Author_id = model.AuthorId 
+                book = new Books
+                {
+                    Id = Guid.NewGuid(),
+                    Name = model.Name,
+                    AuthorId = model.AuthorId,
+                    Description = model.Description
                 };
 
                 db.Book.Add(book);
@@ -83,13 +84,14 @@ namespace Library.Controllers
                 var books = db.Book.ToList();
 
                 var table = from a in books
-                                join b in authors on a.Author_id equals b.Author_id
+                                join b in authors on a.AuthorId equals b.AuthorId
                                 where a.Id == id
                                 select new BooksViewModel()
                                 {
                                     IdBook = a.Id,
                                     Name = a.Name,
-                                    AuthorName = b.First_name + " " + b.Last_name
+                                    AuthorName = b.FirstName + " " + b.LastName,
+                                    Description = a.Description
                                 };
                 if (table != null)
                         return View(table);
@@ -109,7 +111,8 @@ namespace Library.Controllers
             {
                 IdBook = (Guid)id,
                 Name = books.Name,
-                Authors = authorsList
+                Authors = authorsList,
+                Description = books.Description
             };
 
             return View(model);
@@ -124,7 +127,8 @@ namespace Library.Controllers
                 Books book = db.Book.Where(x => x.Id == id).FirstOrDefault();
 
                 book.Name = model.Name;
-                book.Author_id = model.AuthorId;
+                book.AuthorId = model.AuthorId;
+                book.Description = model.Description;
 
                 db.Book.Update(book);
                 db.SaveChanges();

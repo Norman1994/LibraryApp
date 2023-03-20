@@ -16,7 +16,7 @@ namespace Library.Models
         [Column("name")]
         public string Name { get; set; }
         [Column("author_id")]
-        public Guid Author_id { get; set; }
+        public Guid AuthorId { get; set; }
         [Column("description")]
         public string Description { get; set; }
         [Column("cover")]

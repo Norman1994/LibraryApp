@@ -9,14 +9,18 @@
     <div>
         <div>
             <label asp-for="Name">Введите название книги</label><br />
-            <input type="text" asp-for="Name" class="form-control"/>
+            <input type="text" asp-for="Name" class="form-control" />
         </div>
         <div class="form-group">
             <label asp-for="AuthorId">Выберите автора</label>
             <select asp-for="AuthorId"
                     class="form-control"
-                    asp-items="@(new SelectList(Model.Authors,"Author_id", "Last_name"))">
+                    asp-items="@(new SelectList(Model.Authors,"AuthorId", "LastName"))">
             </select>
+        </div>
+        <div>
+            <label asp-for="Description">Введите или измените описание книги</label><br />
+            <input type="text" asp-for="Description" class="form-control" />
         </div>
         <div>
             <input type="submit" value="Изменить" class="btn btn-default" />

@@ -25,9 +25,9 @@ namespace Library.Controllers
             var table = from a in authors
                         select new AuthorsModel()
                         {
-                            AuthorId = a.Author_id,
-                            FirstName = a.First_name,
-                            LastName = a.Last_name
+                            AuthorId = a.AuthorId,
+                            FirstName = a.FirstName,
+                            LastName = a.LastName
                         };
 
             return View(table);
@@ -47,9 +47,9 @@ namespace Library.Controllers
 
                 author = new Authors
                 {
-                    Author_id = Guid.NewGuid(),
-                    First_name = model.FirstName,
-                    Last_name = model.LastName
+                    AuthorId = Guid.NewGuid(),
+                    FirstName = model.FirstName,
+                    LastName = model.LastName
                 };
 
                 db.Author.Add(author);
@@ -68,12 +68,12 @@ namespace Library.Controllers
                 var books = db.Book.ToList();
 
                 var authorTable = from a in authors
-                                  join b in books on a.Author_id equals b.Author_id
-                                  where a.Author_id == id
+                                  join b in books on a.AuthorId equals b.AuthorId
+                                  where a.AuthorId == id
                                   select new AuthorsModel()
                                   {
-                                      FirstName = a.First_name,
-                                      LastName = a.Last_name,
+                                      FirstName = a.FirstName,
+                                      LastName = a.LastName,
                                       BookName = b.Name
                                   };
                 if (authorTable != null)

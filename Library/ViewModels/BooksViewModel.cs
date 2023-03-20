@@ -14,6 +14,8 @@ namespace Library.ViewModels
         public Guid AuthorId { get; set; }
         public string AuthorName { get; set; }
 
+        public string Description { get; set; }
+
         public List<Authors> Authors { get; set; }
     }
 }

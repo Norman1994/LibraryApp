@@ -5,12 +5,15 @@
     <div>
         @foreach (var book in Model)
         {
-            <dl class="dl-horizontal">
-                <dt>Название</dt>
-                <dd>@book.Name</dd>
+        <dl class="dl-horizontal">
+            <dt>Название</dt>
+            <dd>@book.Name</dd>
 
-                <dt>Автор</dt>
-                <dd>@book.AuthorName</dd>
-            </dl>
+            <dt>Автор</dt>
+            <dd>@book.AuthorName</dd>
+
+            <dt>Описание</dt>
+            <dd>@book.Description</dd>
+        </dl>
         }
         </div>
