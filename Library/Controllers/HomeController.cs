@@ -5,10 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Library.Models;
 using Microsoft.EntityFrameworkCore;
 using Library.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Library.DAL;
+using Library.DAL.Entities;
 
 namespace Library.Controllers
 {

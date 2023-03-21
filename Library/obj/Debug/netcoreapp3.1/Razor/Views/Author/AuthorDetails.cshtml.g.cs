@@ -21,13 +21,13 @@ using Library;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\KazinDA\Desktop\LibraryApp\Library\Views\_ViewImports.cshtml"
-using Library.Models;
+using Library.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e8d5921480abc526aff5cfec0251489f114f937c", @"/Views/Author/AuthorDetails.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"dadb7a731bfbb305c411bc5eb7a307dbd6008a89", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0771e4cc1fcb55125c5e73a7f84a2e68b8782ee3", @"/Views/_ViewImports.cshtml")]
     public class Views_Author_AuthorDetails : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Library.ViewModels.AuthorsModel>>
     {
         #pragma warning disable 1998

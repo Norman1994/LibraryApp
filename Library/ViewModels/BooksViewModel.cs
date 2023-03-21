@@ -1,4 +1,4 @@
-﻿using Library.Models;
+﻿using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
