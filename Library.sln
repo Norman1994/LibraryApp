@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.DAL", "Library.DAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.Tests", "Library.Tests\Library.Tests.csproj", "{ADFF5F52-DC78-488E-AC6C-E7F7290379A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.BLL", "Library.BLL\Library.BLL.csproj", "{CEF88833-55AF-42AF-B45E-6F5B368C48A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.API", "Library.API\Library.API.csproj", "{25917F7E-52CE-4A5E-9F0F-3728203B1C66}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{ADFF5F52-DC78-488E-AC6C-E7F7290379A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADFF5F52-DC78-488E-AC6C-E7F7290379A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADFF5F52-DC78-488E-AC6C-E7F7290379A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF88833-55AF-42AF-B45E-6F5B368C48A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF88833-55AF-42AF-B45E-6F5B368C48A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF88833-55AF-42AF-B45E-6F5B368C48A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF88833-55AF-42AF-B45E-6F5B368C48A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25917F7E-52CE-4A5E-9F0F-3728203B1C66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25917F7E-52CE-4A5E-9F0F-3728203B1C66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25917F7E-52CE-4A5E-9F0F-3728203B1C66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25917F7E-52CE-4A5E-9F0F-3728203B1C66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

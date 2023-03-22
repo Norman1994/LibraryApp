@@ -10,25 +10,28 @@ using Library.ViewModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Library.DAL;
 using Library.DAL.Entities;
+using Library.BLL.Services;
 
 namespace Library.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationContext db;
+        private readonly ApplicationContext db;
+        private readonly IBookService bookService;
 
-        public HomeController(ApplicationContext context)
+        public HomeController(ApplicationContext context, IBookService bookService)
         {
             db = context;
+            this.bookService = bookService;
         }
         public IActionResult Index()
         {
-            var authors = db.Author.ToList();
-            var books = db.Book.ToList();
+            var authors = db.Authors.ToList();
+            var books = db.Books.ToList();
 
             var table = from a in books
-                                join b in authors on a.AuthorId equals b.AuthorId
-                                select new BooksViewModel()
+                                join b in authors on a.AuthorId equals b.Id
+                                select new BookViewModel()
                                 {
                                     IdBook = a.Id,
                                     Name = a.Name,
@@ -42,11 +45,11 @@ namespace Library.Controllers
 
         public IActionResult Create()
         {
-            BooksViewModel model = new BooksViewModel();
+            BookViewModel model = new BookViewModel();
 
-            List<Authors> authorsList = new List<Authors>();
+            List<Author> authorsList = new List<Author>();
 
-            authorsList = (from author in db.Author
+            authorsList = (from author in db.Authors
                            select author).ToList();
 
             model.Authors = authorsList;
@@ -55,13 +58,13 @@ namespace Library.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(BooksViewModel model)
+        public IActionResult Create(BookViewModel model)
         {
-            Books book = db.Book.FirstOrDefault();
+            Book book = db.Books.FirstOrDefault();
 
             if (ModelState.IsValid)
             {
-                book = new Books
+                book = new Book
                 {
                     Id = Guid.NewGuid(),
                     Name = model.Name,
@@ -69,7 +72,7 @@ namespace Library.Controllers
                     Description = model.Description
                 };
 
-                db.Book.Add(book);
+                db.Books.Add(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -81,13 +84,13 @@ namespace Library.Controllers
         {
             if (id != null)
             {
-                var authors = db.Author.ToList();
-                var books = db.Book.ToList();
+                var authors = db.Authors.ToList();
+                var books = db.Books.ToList();
 
                 var table = from a in books
-                                join b in authors on a.AuthorId equals b.AuthorId
+                                join b in authors on a.AuthorId equals b.Id
                                 where a.Id == id
-                                select new BooksViewModel()
+                                select new BookViewModel()
                                 {
                                     IdBook = a.Id,
                                     Name = a.Name,
@@ -102,13 +105,13 @@ namespace Library.Controllers
 
         public IActionResult Edit(Guid? id)
         {
-            Books books = db.Book.FirstOrDefault(p => p.Id == id);
-            List<Authors> authorsList = new List<Authors>();
+            Book books = db.Books.FirstOrDefault(p => p.Id == id);
+            List<Author> authorsList = new List<Author>();
 
-            authorsList = (from author in db.Author
+            authorsList = (from author in db.Authors
                            select author).ToList();
 
-            var model = new BooksViewModel()
+            var model = new BookViewModel()
             {
                 IdBook = (Guid)id,
                 Name = books.Name,
@@ -120,18 +123,18 @@ namespace Library.Controllers
         }
             
         [HttpPost]
-        public IActionResult Edit(BooksViewModel model, Guid? id)
+        public IActionResult Edit(BookViewModel model, Guid? id)
         {
 
             if (ModelState.IsValid)
             {
-                Books book = db.Book.Where(x => x.Id == id).FirstOrDefault();
+                Book book = db.Books.Where(x => x.Id == id).FirstOrDefault();
 
                 book.Name = model.Name;
                 book.AuthorId = model.AuthorId;
                 book.Description = model.Description;
 
-                db.Book.Update(book);
+                db.Books.Update(book);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -144,9 +147,9 @@ namespace Library.Controllers
         {
             if (id != null)
             {
-                Books books = db.Book.FirstOrDefault(p => p.Id == id);
+                Book books = db.Books.FirstOrDefault(p => p.Id == id);
                 if (books != null)
-                    db.Book.Remove(books);
+                    db.Books.Remove(books);
                     db.SaveChanges();
                     return RedirectToAction("Index");
             }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Library.ViewModels
 {
-    public class BooksViewModel
+    public class BookViewModel
     {
         public Guid IdBook { get; set; }
         public string Name { get; set; }
@@ -16,6 +16,6 @@ namespace Library.ViewModels
 
         public string Description { get; set; }
 
-        public List<Authors> Authors { get; set; }
+        public List<Author> Authors { get; set; }
     }
 }

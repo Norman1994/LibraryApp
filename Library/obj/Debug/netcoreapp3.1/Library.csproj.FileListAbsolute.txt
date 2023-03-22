@@ -147,6 +147,10 @@ C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Npgsql.Entit
 C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.BLL.dll
+C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.DAL.dll
+C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.BLL.pdb
+C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.DAL.pdb
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\Library.csprojAssemblyReference.cache
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\staticwebassets\Library.StaticWebAssets.Manifest.cache
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\staticwebassets\Library.StaticWebAssets.xml
@@ -176,5 +180,3 @@ C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\Library.View
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\Library.csproj.CopyComplete
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\Library.dll
 C:\Users\KazinDA\Desktop\LibraryApp\Library\obj\Debug\netcoreapp3.1\Library.pdb
-C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.DAL.dll
-C:\Users\KazinDA\Desktop\LibraryApp\Library\bin\Debug\netcoreapp3.1\Library.DAL.pdb

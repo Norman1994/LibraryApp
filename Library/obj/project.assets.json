@@ -223,6 +223,19 @@
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "Library.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Library.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Library.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Library.BLL.dll": {}
+        }
+      },
       "Library.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -687,6 +700,11 @@
         "version.txt"
       ]
     },
+    "Library.BLL/1.0.0": {
+      "type": "project",
+      "path": "../Library.BLL/Library.BLL.csproj",
+      "msbuildProject": "../Library.BLL/Library.BLL.csproj"
+    },
     "Library.DAL/1.0.0": {
       "type": "project",
       "path": "../Library.DAL/Library.DAL.csproj",
@@ -695,6 +713,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Library.BLL >= 1.0.0",
       "Library.DAL >= 1.0.0"
     ]
   },
@@ -724,6 +743,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
+            "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.BLL\\Library.BLL.csproj": {
+              "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.BLL\\Library.BLL.csproj"
+            },
             "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
               "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
             }

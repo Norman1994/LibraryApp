@@ -9,8 +9,8 @@ namespace Library.DAL
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<Books> Book { get; set; }
-        public DbSet<Authors> Author { get; set; }
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {

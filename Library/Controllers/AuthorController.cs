@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.BLL.Services;
 using Library.DAL;
 using Library.DAL.Entities;
 using Library.ViewModels;
@@ -14,19 +15,21 @@ namespace Library.Controllers
     public class AuthorController : Controller
     {
         private ApplicationContext db;
+        private readonly IAuthorService authorService;
 
-        public AuthorController(ApplicationContext context)
+        public AuthorController(ApplicationContext context, IAuthorService authorService)
         {
             db = context;
+            this.authorService = authorService;
         }
         // GET: AuthorController
         public IActionResult AuthorIndex()
         {
-            var authors = db.Author.ToList();
+            var authors = authorService.GetAuthors(0, 10);
             var table = from a in authors
-                        select new AuthorsModel()
+                        select new AuthorViewModel()
                         {
-                            AuthorId = a.AuthorId,
+                            AuthorId = a.Id,
                             FirstName = a.FirstName,
                             LastName = a.LastName
                         };
@@ -40,21 +43,17 @@ namespace Library.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddAuthor(AuthorsModel model)
+        public IActionResult AddAuthor(AuthorViewModel model)
         {
             if (ModelState.IsValid)
             {
-                Authors author = db.Author.FirstOrDefault();
-
-                author = new Authors
+                Author author = new Author
                 {
-                    AuthorId = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     FirstName = model.FirstName,
                     LastName = model.LastName
                 };
-
-                db.Author.Add(author);
-                db.SaveChanges();
+                authorService.Create(author);
                 return RedirectToAction("AuthorIndex");
 
             }
@@ -65,17 +64,16 @@ namespace Library.Controllers
         {
             if (id != null)
             {
-                var authors = db.Author.ToList();
-                var books = db.Book.ToList();
+                var authors = db.Authors.ToList();
+                var books = db.Books.ToList();
 
                 var authorTable = from a in authors
-                                  join b in books on a.AuthorId equals b.AuthorId
-                                  where a.AuthorId == id
-                                  select new AuthorsModel()
+                                  join b in books on a.Id equals b.AuthorId
+                                  where a.Id == id
+                                  select new AuthorViewModel()
                                   {
                                       FirstName = a.FirstName,
                                       LastName = a.LastName,
-                                      BookName = b.Name
                                   };
                 if (authorTable != null)
                     return View(authorTable);
