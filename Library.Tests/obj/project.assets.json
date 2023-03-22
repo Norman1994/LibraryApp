@@ -925,7 +925,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "fOzCPrx2f+LU5ckHM690ySJ9txNKvR5OBwgY3IfA5pDBX47gB77zx18Xm3kR+Q4hTfqnT7OAYUY64QUIqou+PQ==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -1110,7 +1110,7 @@
       ]
     },
     "NETStandard.Library/2.0.0": {
-      "sha512": "7jnbRU+L08FXKMxqUflxEXtVymWvNOrS8yHgu9s6EM8Anr6T/wIX4nZ08j/u3Asz+tCufp3YVwFSEvFTPYmBPA==",
+      "sha512": "49ZAcrnNn56GIJwGoiaI7NpwcEJ8mjUyfSqVYIJMDhOBzPe8HSHS74swF2H0v8fzj7pxLfcYjS9P5PdIqsTQxw==",
       "type": "package",
       "path": "netstandard.library/2.0.0",
       "files": [
@@ -1513,7 +1513,7 @@
       ]
     },
     "System.Reflection.Metadata/1.6.0": {
-      "sha512": "COC1aiAJjCoA5GBF+QKL2uLqEBew4JsCkQmoHKbN3TlOZKa2fKLz5CpiRQKDz0RsAOEGsVKqOD5bomsXq/4STQ==",
+      "sha512": "9SJ2Zu3Gux2ni4qOhqaOm9ZHyqLsahWAwUpKXh/lz9472vDYwj3CEMQFpV+Dzrat0amtqxSdwGWzjP3cmwG6IA==",
       "type": "package",
       "path": "system.reflection.metadata/1.6.0",
       "files": [
@@ -1573,19 +1573,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\KazinDA\\.nuget\\packages\\": {}
+    "C:\\Users\\d.kulikov\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
       "projectName": "Library.Tests",
-      "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
-      "packagesPath": "C:\\Users\\KazinDA\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\obj\\",
+      "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
+      "packagesPath": "C:\\Users\\d.kulikov\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\KazinDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\d.kulikov\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1598,8 +1602,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
-              "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
+            "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
+              "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
             }
           }
         }
@@ -1641,7 +1645,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.7.20366.6\\RuntimeIdentifierGraph.json"
       }
     }
   }

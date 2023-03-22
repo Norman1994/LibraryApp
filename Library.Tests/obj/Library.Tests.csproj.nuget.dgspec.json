@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj": {}
+    "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
+    "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj",
+        "projectUniqueName": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj",
         "projectName": "Library.DAL",
-        "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj",
-        "packagesPath": "C:\\Users\\KazinDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\obj\\",
+        "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj",
+        "packagesPath": "C:\\Users\\d.kulikov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\KazinDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\d.kulikov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,21 +61,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.7.20366.6\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj": {
+    "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
         "projectName": "Library.Tests",
-        "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
-        "packagesPath": "C:\\Users\\KazinDA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.Tests\\obj\\",
+        "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\Library.Tests.csproj",
+        "packagesPath": "C:\\Users\\d.kulikov\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\KazinDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\d.kulikov\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -85,8 +91,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
-                "projectPath": "C:\\Users\\KazinDA\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
+              "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
+                "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
               }
             }
           }
@@ -128,7 +134,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.7.20366.6\\RuntimeIdentifierGraph.json"
         }
       }
     }

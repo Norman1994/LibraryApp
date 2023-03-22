@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Library.BLL.Services;
+using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -22,9 +20,9 @@ namespace Library.API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<object> Get()
+        public List<Author> Get()
         {
-            return null;
+            return authorService.GetAuthors(0, 10);
         }
     }
 }
