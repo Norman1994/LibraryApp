@@ -699,23 +699,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d.kulikov\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\KazinDA\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.BLL\\Library.BLL.csproj",
+      "projectUniqueName": "C:\\Users\\KazinDA\\Desktop\\Проект\\LibraryApp\\Library.BLL\\Library.BLL.csproj",
       "projectName": "Library.BLL",
-      "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.BLL\\Library.BLL.csproj",
-      "packagesPath": "C:\\Users\\d.kulikov\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.BLL\\obj\\",
+      "projectPath": "C:\\Users\\KazinDA\\Desktop\\Проект\\LibraryApp\\Library.BLL\\Library.BLL.csproj",
+      "packagesPath": "C:\\Users\\KazinDA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\KazinDA\\Desktop\\Проект\\LibraryApp\\Library.BLL\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\d.kulikov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\KazinDA\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -727,9 +723,10 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
-              "projectPath": "C:\\Users\\d.kulikov\\Desktop\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
+            "C:\\Users\\KazinDA\\Desktop\\Проект\\LibraryApp\\Library.DAL\\Library.DAL.csproj": {
+              "projectPath": "C:\\Users\\KazinDA\\Desktop\\Проект\\LibraryApp\\Library.DAL\\Library.DAL.csproj"
             }
           }
         }
@@ -742,6 +739,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "imports": [
           "net461",
           "net462",
@@ -757,7 +755,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100-preview.7.20366.6\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.416\\RuntimeIdentifierGraph.json"
       }
     }
   }

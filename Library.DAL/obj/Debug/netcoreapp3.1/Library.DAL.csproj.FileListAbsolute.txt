@@ -14,3 +14,13 @@ C:\Users\d.kulikov\Desktop\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Librar
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.csproj.CoreCompileInputs.cache
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.dll
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.pdb
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\bin\Debug\netcoreapp3.1\Library.DAL.deps.json
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\bin\Debug\netcoreapp3.1\Library.DAL.dll
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\bin\Debug\netcoreapp3.1\Library.DAL.pdb
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.csproj.AssemblyReference.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.AssemblyInfoInputs.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.AssemblyInfo.cs
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.csproj.CoreCompileInputs.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.dll
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.DAL\obj\Debug\netcoreapp3.1\Library.DAL.pdb

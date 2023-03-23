@@ -1,2 +1,5 @@
 Library/appsettings.json
 .vs/Library/v16/Server/
+*.cache
+*.nuget.cache
+*.pdb

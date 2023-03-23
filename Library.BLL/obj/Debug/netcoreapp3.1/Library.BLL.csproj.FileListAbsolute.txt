@@ -21,3 +21,16 @@ C:\Users\d.kulikov\Desktop\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Librar
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.csproj.CopyComplete
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.dll
 C:\Users\d.kulikov\Desktop\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.pdb
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\bin\Debug\netcoreapp3.1\Library.BLL.deps.json
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\bin\Debug\netcoreapp3.1\Library.BLL.dll
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\bin\Debug\netcoreapp3.1\Library.BLL.pdb
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\bin\Debug\netcoreapp3.1\Library.DAL.dll
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\bin\Debug\netcoreapp3.1\Library.DAL.pdb
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.csproj.AssemblyReference.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.AssemblyInfoInputs.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.AssemblyInfo.cs
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.csproj.CoreCompileInputs.cache
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.csproj.CopyComplete
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.dll
+C:\Users\KazinDA\Desktop\Проект\LibraryApp\Library.BLL\obj\Debug\netcoreapp3.1\Library.BLL.pdb
