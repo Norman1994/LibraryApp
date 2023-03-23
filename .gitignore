@@ -49,3 +49,7 @@
 .vs/Library/DesignTimeBuild/
 .vs/Library/v16/.suo
 /Library.Tests/obj/
+/Library.API/obj/Debug/netcoreapp3.1/
+/Library.DAL/obj/Debug/netcoreapp3.1/
+/Library.BLL/obj/Debug/netcoreapp3.1/
+/Library.Tests/obj/Debug/netcoreapp3.1/
