@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Events;
 
 namespace Library.API
 {
@@ -16,7 +19,10 @@ namespace Library.API
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
-                    logging.AddConsole();
+                    logging.AddSerilog();
+                    logging.AddFilter((category, level) =>
+                      category.Contains("WRN"));
+                    logging.AddFile("logs/AppLog.txt");
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {

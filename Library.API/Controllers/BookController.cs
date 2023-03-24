@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Library.BLL.Services;
@@ -28,7 +29,15 @@ namespace Library.API.Controllers
         [HttpGet]
         public List<Book> Get()
         {
-            return bookService.GetAll(0, 10);
+            try
+            {
+                return bookService.GetAll(0, 10);
+            }
+            catch (Exception e)
+            {
+                logger.LogError(e.Message);
+                return null;
+            }
         }
     }
 }
