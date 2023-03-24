@@ -8,12 +8,12 @@ namespace Library.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class AuthorController : ControllerBase
+    public class AuthorsController : ControllerBase
     {
-        private readonly ILogger<AuthorController> logger;
+        private readonly ILogger<AuthorsController> logger;
 
         private readonly IAuthorService authorService;
-        public AuthorController(ILogger<AuthorController> logger, IAuthorService authorService)
+        public AuthorsController(ILogger<AuthorsController> logger, IAuthorService authorService)
         {
             this.logger = logger;
             this.authorService = authorService;

@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Library.BLL.Services;
+using Library.DAL.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Library.API.Controllers
 {
@@ -11,21 +14,38 @@ namespace Library.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        [HttpPost("authenticate")]
-        public IActionResult Authenticate()
+        private readonly ILogger<UsersController> logger;
+
+        private readonly IUserService userService;
+
+        public UsersController(ILogger<UsersController> logger, IUserService userService)
         {
-            return null;
+            this.logger = logger;
+            this.userService = userService;
         }
 
-        [HttpPost("register")]
-        public IActionResult Register()
+        [HttpPost]
+        public bool Post (UserInfo user)
         {
-            return Ok();
+            return userService.Create(user);
         }
 
-        public IActionResult GetAll()
+        [HttpPut()]
+        public bool Put (UserInfo user)
         {
-            return Ok();
+            return userService.Update(user);
+        }
+
+        [HttpGet()]
+        public IEnumerable<UserInfo> GetAll(int offset = 0, int limit = 10)
+        {
+            return userService.GetAll(offset, limit);
+        }
+
+        [HttpGet("getuser")]
+        public UserInfo GetUser(Guid id)
+        {
+            return userService.GetById(id);
         }
     }
 }
