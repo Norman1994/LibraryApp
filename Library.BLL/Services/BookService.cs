@@ -79,6 +79,7 @@ namespace Library.BLL.Services
 
         public List<Book> GetAll(int offset, int limit)
         {
+            //throw new Exception("AHTUNG!!!!");
             return context.Books.Skip(offset).Take(limit).ToList();
         }
     }
