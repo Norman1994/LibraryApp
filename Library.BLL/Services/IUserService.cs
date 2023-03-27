@@ -16,5 +16,6 @@ namespace Library.BLL.Services
         bool Update(UserInfo user);
 
         bool? Delete(Guid id);
+        UserInfo GetByLoginAndPassword(string username, string password);
     }
 }

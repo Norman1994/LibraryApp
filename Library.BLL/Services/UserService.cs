@@ -1,17 +1,19 @@
-﻿using Library.DAL;
-using Library.DAL.Entities;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
+using Library.DAL;
+using Library.DAL.Entities;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace Library.BLL.Services
 {
     public class UserService : IUserService
     {
         private readonly ApplicationContext context;
-        public UserService(ApplicationContext context)
+        private readonly ILogger<UserService> logger;
+        public UserService(ApplicationContext context, ILogger<UserService> logger)
         {
+            this.logger = logger;
             this.context = context;
         }
         public bool Create(UserInfo user)
@@ -28,6 +30,7 @@ namespace Library.BLL.Services
             }
             catch(Exception e)
             {
+                logger.LogError(e.Message);
                 return false;
             }
         }
@@ -45,6 +48,7 @@ namespace Library.BLL.Services
             }
             catch(Exception e)
             {
+                logger.LogError(e.Message);
                 return false;
             }
         }
@@ -68,6 +72,7 @@ namespace Library.BLL.Services
             }
             catch (Exception e)
             {
+                logger.LogError(e.Message);
                 return false;
             }
         }
@@ -83,6 +88,11 @@ namespace Library.BLL.Services
             {
                 return context.Users.Find(id);
             }    
+        }
+
+        public UserInfo GetByLoginAndPassword(string username, string password)
+        {
+            return context.Users.FirstOrDefault(x => x.Username.Equals(username) && x.Password.Equals(password));
         }
     }
 }
