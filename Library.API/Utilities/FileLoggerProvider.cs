@@ -1,21 +1,21 @@
 ﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library.API.Utilities
 {
     public class FileLoggerProvider : ILoggerProvider
     {
+        string path;
+        public FileLoggerProvider(string path)
+        {
+            this.path = path;
+        }
+
         public ILogger CreateLogger(string categoryName)
         {
-            throw new NotImplementedException();
+            return new FileLogger(path);
         }
 
         public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        {}
     }
 }

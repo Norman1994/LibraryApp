@@ -1,31 +1,43 @@
 ﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Library.API.Utilities
 {
     public class FileLogger : ILogger, IDisposable
     {
+        string filePath;
+        static object _lock = new object();
+
+        public FileLogger(string path)
+        {
+            filePath = path;
+        }
+
         public IDisposable BeginScope<TState>(TState state)
         {
-            throw new NotImplementedException();
+            return this;
         }
 
         public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
+        {}
 
         public bool IsEnabled(LogLevel logLevel)
         {
-            throw new NotImplementedException();
+            return logLevel == LogLevel.Error;
         }
 
         public void Log<TState>(LogLevel logLevel, EventId eventId, TState state, Exception exception, Func<TState, Exception, string> formatter)
         {
-            throw new NotImplementedException();
+            string message = DateTime.Now + ": " + formatter(state, exception) + ", " + GetType().Name.ToString();
+
+            lock (_lock)
+            {
+                File.AppendAllText(filePath, message + Environment.NewLine);
+            }
         }
     }
 }

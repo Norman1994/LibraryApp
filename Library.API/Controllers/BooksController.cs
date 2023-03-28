@@ -28,7 +28,15 @@ namespace Library.API.Controllers
         [HttpGet]
         public List<Book> Get()
         {
-            return bookService.GetAll(0, 10);
+            try
+            {
+                return bookService.GetAll(0, 10);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return null;
+            }
         }
     }
 }
