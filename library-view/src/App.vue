@@ -131,7 +131,7 @@ main {
     padding: 4.2rem 1.5rem;
     .content {
       max-width: 1280px;
-      min-width: 720px;
+      // min-width: 720px;
       margin: 0 auto;
     }
   }
