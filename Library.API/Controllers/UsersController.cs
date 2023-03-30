@@ -50,7 +50,7 @@ namespace Library.API.Controllers
         }
 
         [HttpGet()]
-        [Authorize()]
+        [Authorize(Roles = "admin")]
         public IEnumerable<UserInfo> GetAll (int offset = 0, int limit = 10)
         {
             return userService.GetAll(offset, limit);
