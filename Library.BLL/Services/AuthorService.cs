@@ -3,15 +3,18 @@ using Library.DAL;
 using System.Linq;
 using Library.DAL.Entities;
 using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
 
 namespace Library.BLL.Services
 {
     public class AuthorService : IAuthorService
     {
         private readonly ApplicationContext context;
-        public AuthorService(ApplicationContext context)
+        private readonly ILogger<AuthorService> logger;
+        public AuthorService(ApplicationContext context, ILogger<AuthorService> logger)
         {
             this.context = context;
+            this.logger = logger;
         }
 
         public bool Create(Author author)
@@ -27,6 +30,7 @@ namespace Library.BLL.Services
             }
             catch(Exception e)
             {
+                logger.LogError(e.ToString());
                 return false;
             }
         }
@@ -44,6 +48,7 @@ namespace Library.BLL.Services
             }
             catch (Exception e)
             {
+                logger.LogError(e.ToString());
                 return false;
             }
         }
@@ -66,6 +71,7 @@ namespace Library.BLL.Services
             }
             catch (Exception e)
             {
+                logger.LogError(e.ToString());
                 return false;
             }
         }

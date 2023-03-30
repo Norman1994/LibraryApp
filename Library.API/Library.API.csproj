@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Library.BLL\Library.BLL.csproj" />
+    <ProjectReference Include="..\Library.JWT\Library.JWT.csproj" />
   </ItemGroup>
 
 

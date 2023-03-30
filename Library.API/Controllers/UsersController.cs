@@ -1,9 +1,11 @@
 ﻿using System;
+using Library.BLL.Dto;
 using Library.BLL.Services;
 using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Library.API.Controllers
 {
@@ -21,10 +23,24 @@ namespace Library.API.Controllers
             this.userService = userService;
         }
 
-        [HttpPost]
-        public bool Post (UserInfo user)
+        [HttpPost("register")]
+        public IActionResult Register (UserInfo user)
         {
-            return userService.Create(user);
+            string errorMessage = "";
+            AuthenticateResponse response = userService.Register(user, ref errorMessage);
+            return Ok(response);
+        }
+
+        [HttpPost("login")]
+        public IActionResult Login(AuthenticateRequest model)
+        {
+            var response = userService.Authenticate(model);
+
+            if(response is null)
+            {
+                return BadRequest(new { message = "Неверный логин и/или пароль" });
+            }
+            return Ok(response);
         }
 
         [HttpPut()]
@@ -34,13 +50,14 @@ namespace Library.API.Controllers
         }
 
         [HttpGet()]
-        public IEnumerable<UserInfo> GetAll(int offset = 0, int limit = 10)
+        [Authorize()]
+        public IEnumerable<UserInfo> GetAll (int offset = 0, int limit = 10)
         {
             return userService.GetAll(offset, limit);
         }
 
         [HttpGet("getuser")]
-        public UserInfo GetUser(Guid id)
+        public UserInfo GetUser (Guid id)
         {
             return userService.GetById(id);
         }
