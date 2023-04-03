@@ -24,6 +24,7 @@ namespace Library.DAL.Entities
         [Column("cover")]
         public byte[] Cover { get; set; }
 
+        [NotMapped]
         public List<Author> Authors { get; set; } = new List<Author>();
     }
 }

@@ -18,6 +18,7 @@ namespace Library.DAL.Entities
         [Column("last_name")]
         public string LastName { get; set; }
 
+        [NotMapped]
         public List<Book> Books { get; set; } = new List<Book>();
     }
 }
