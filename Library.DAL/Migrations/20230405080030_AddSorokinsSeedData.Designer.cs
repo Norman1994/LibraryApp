@@ -3,36 +3,23 @@ using System;
 using Library.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Library.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230405080030_AddSorokinsSeedData")]
+    partial class AddSorokinsSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 63)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn);
-
-            modelBuilder.Entity("AuthorBook", b =>
-                {
-                    b.Property<Guid>("AuthorsId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("BooksId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("AuthorsId", "BooksId");
-
-                    b.HasIndex("BooksId");
-
-                    b.ToTable("authorbook");
-                });
 
             modelBuilder.Entity("Library.DAL.Entities.Author", b =>
                 {
@@ -56,7 +43,7 @@ namespace Library.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("da5368d8-7225-4fb0-b7b4-9db8280aee00"),
+                            Id = new Guid("1e02e0a9-65bc-44c4-9374-5275301eabb9"),
                             FirstName = "Vladimir",
                             LastName = "Sorokin"
                         });
@@ -104,14 +91,14 @@ namespace Library.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("7b514a34-976f-4986-a0d4-dc2a82bcf9c8"),
+                            Id = new Guid("f3d61903-99aa-45b6-a032-dda5880cd6e2"),
                             Name = "Goluboe Salo",
                             PageCount = 0,
                             Rating = 0
                         },
                         new
                         {
-                            Id = new Guid("e4006af1-32b1-4160-9ee5-f5fe6f0d5ccd"),
+                            Id = new Guid("3237c832-37d8-4079-a5fa-9b0203c832b7"),
                             Name = "Norma",
                             PageCount = 0,
                             Rating = 0
@@ -184,7 +171,7 @@ namespace Library.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3e60163-f04a-4e7c-a9d6-2778390505bf"),
+                            Id = new Guid("4e3a1884-f642-40f6-96ab-4f2e286857d1"),
                             Email = "dima.kulikov1993@gmail.com",
                             FirstName = "Dmitry",
                             LastName = "Kulikov",
@@ -194,7 +181,7 @@ namespace Library.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dd80e78c-d377-4a6a-8e39-4f6cb1fe98a5"),
+                            Id = new Guid("b1732127-0a57-438f-9102-05879865c91e"),
                             Email = "Norman1994@mail.ru",
                             FirstName = "Dmitry",
                             LastName = "Kazin",
@@ -204,7 +191,7 @@ namespace Library.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d175d342-d1b8-4408-8262-0ee65f60208a"),
+                            Id = new Guid("62be26f6-9aab-497b-88c2-fdeb796c44c2"),
                             Email = "burlis@mail.ru",
                             FirstName = "Elena",
                             LastName = "Posypkina",
@@ -212,21 +199,6 @@ namespace Library.DAL.Migrations
                             Role = "admin",
                             Username = "Burlis"
                         });
-                });
-
-            modelBuilder.Entity("AuthorBook", b =>
-                {
-                    b.HasOne("Library.DAL.Entities.Author", null)
-                        .WithMany()
-                        .HasForeignKey("AuthorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Library.DAL.Entities.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

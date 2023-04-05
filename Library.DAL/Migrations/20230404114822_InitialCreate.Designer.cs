@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Library.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20230403091108_Initial")]
-    partial class Initial
+    [Migration("20230404114822_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,7 +25,7 @@ namespace Library.DAL.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnName("author_id")
+                        .HasColumnName("id")
                         .HasColumnType("uuid");
 
                     b.Property<string>("FirstName")
@@ -38,7 +38,7 @@ namespace Library.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("authors","public");
+                    b.ToTable("author","public");
                 });
 
             modelBuilder.Entity("Library.DAL.Entities.Book", b =>
@@ -48,8 +48,44 @@ namespace Library.DAL.Migrations
                         .HasColumnName("id")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid>("AuthorId")
-                        .HasColumnName("author_id")
+                    b.Property<string>("Annotation")
+                        .HasColumnName("annotation")
+                        .HasColumnType("text");
+
+                    b.Property<byte[]>("Cover")
+                        .HasColumnName("cover")
+                        .HasColumnType("bytea");
+
+                    b.Property<string>("Description")
+                        .HasColumnName("description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("IssueYear")
+                        .HasColumnName("issue_year")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnName("name")
+                        .HasColumnType("text");
+
+                    b.Property<int>("PageCount")
+                        .HasColumnName("page_count")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Rating")
+                        .HasColumnName("rating")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("book","public");
+                });
+
+            modelBuilder.Entity("Library.DAL.Entities.Edition", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("id")
                         .HasColumnType("uuid");
 
                     b.Property<byte[]>("Cover")
@@ -60,13 +96,13 @@ namespace Library.DAL.Migrations
                         .HasColumnName("description")
                         .HasColumnType("text");
 
-                    b.Property<string>("Name")
-                        .HasColumnName("name")
+                    b.Property<string>("IssueYear")
+                        .HasColumnName("issue_year")
                         .HasColumnType("text");
 
                     b.HasKey("Id");
 
-                    b.ToTable("books","public");
+                    b.ToTable("edition","public");
                 });
 
             modelBuilder.Entity("Library.DAL.Entities.UserInfo", b =>
@@ -102,7 +138,39 @@ namespace Library.DAL.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("users","public");
+                    b.ToTable("user","public");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("2179f24b-a244-4400-827f-76a6710a7b77"),
+                            Email = "dima.kulikov1993@gmail.com",
+                            FirstName = "Dmitry",
+                            LastName = "Kulikov",
+                            Password = "Dima_kulikov1993",
+                            Role = "user",
+                            Username = "Dima_kulikov1993"
+                        },
+                        new
+                        {
+                            Id = new Guid("83f16470-2fa4-4242-92d2-924594ac0a73"),
+                            Email = "Norman1994@mail.ru",
+                            FirstName = "Dmitry",
+                            LastName = "Kazin",
+                            Password = "Dima_kazin1994",
+                            Role = "user",
+                            Username = "Norman1994"
+                        },
+                        new
+                        {
+                            Id = new Guid("6689c7e2-ece6-47d2-a5da-adcc91159ad7"),
+                            Email = "burlis@mail.ru",
+                            FirstName = "Elena",
+                            LastName = "Posypkina",
+                            Password = "Burlis1994",
+                            Role = "admin",
+                            Username = "Burlis"
+                        });
                 });
 #pragma warning restore 612, 618
         }

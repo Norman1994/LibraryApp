@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.DAL.Entities
 {
-    [Table("authors", Schema = "public")]
+    [Table("author", Schema = "public")]
     public class Author
     {
         [Key]
-        [Column("author_id")]
+        [Column("id")]
         public Guid Id { get; set; }
 
         [Column("first_name")]

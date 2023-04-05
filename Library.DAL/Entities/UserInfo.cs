@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.DAL.Entities
 {
-    [Table("users", Schema = "public")]
+    [Table("user", Schema = "public")]
     public class UserInfo
     {
         [Key]

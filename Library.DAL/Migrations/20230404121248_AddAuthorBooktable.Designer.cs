@@ -3,15 +3,17 @@ using System;
 using Library.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Library.DAL.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20230404121248_AddAuthorBooktable")]
+    partial class AddAuthorBooktable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -52,14 +54,6 @@ namespace Library.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("author", "public");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("da5368d8-7225-4fb0-b7b4-9db8280aee00"),
-                            FirstName = "Vladimir",
-                            LastName = "Sorokin"
-                        });
                 });
 
             modelBuilder.Entity("Library.DAL.Entities.Book", b =>
@@ -100,22 +94,6 @@ namespace Library.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("book", "public");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7b514a34-976f-4986-a0d4-dc2a82bcf9c8"),
-                            Name = "Goluboe Salo",
-                            PageCount = 0,
-                            Rating = 0
-                        },
-                        new
-                        {
-                            Id = new Guid("e4006af1-32b1-4160-9ee5-f5fe6f0d5ccd"),
-                            Name = "Norma",
-                            PageCount = 0,
-                            Rating = 0
-                        });
                 });
 
             modelBuilder.Entity("Library.DAL.Entities.Edition", b =>
@@ -124,10 +102,6 @@ namespace Library.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("id");
-
-                    b.Property<Guid>("BookId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("book_id");
 
                     b.Property<byte[]>("Cover")
                         .HasColumnType("bytea")
@@ -184,7 +158,7 @@ namespace Library.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b3e60163-f04a-4e7c-a9d6-2778390505bf"),
+                            Id = new Guid("b0ae60fa-87b2-451a-be36-54fd3552a0df"),
                             Email = "dima.kulikov1993@gmail.com",
                             FirstName = "Dmitry",
                             LastName = "Kulikov",
@@ -194,7 +168,7 @@ namespace Library.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("dd80e78c-d377-4a6a-8e39-4f6cb1fe98a5"),
+                            Id = new Guid("c9ecb1a5-729b-4feb-a028-e405d79573ad"),
                             Email = "Norman1994@mail.ru",
                             FirstName = "Dmitry",
                             LastName = "Kazin",
@@ -204,7 +178,7 @@ namespace Library.DAL.Migrations
                         },
                         new
                         {
-                            Id = new Guid("d175d342-d1b8-4408-8262-0ee65f60208a"),
+                            Id = new Guid("084f75cd-70ad-413d-8e20-64321e46a825"),
                             Email = "burlis@mail.ru",
                             FirstName = "Elena",
                             LastName = "Posypkina",

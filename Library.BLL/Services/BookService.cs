@@ -4,6 +4,7 @@ using System.Linq;
 using Library.DAL.Entities;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.BLL.Services
 {
@@ -29,7 +30,7 @@ namespace Library.BLL.Services
             }
             catch(Exception e)
             {
-                logger.LogError(e.Message);
+                logger.LogError(e.ToString());
                 return false;
             }
             
@@ -44,7 +45,7 @@ namespace Library.BLL.Services
             }
             catch (Exception e)
             {
-                logger.LogError(e.Message);
+                logger.LogError(e.ToString());
                 return false;
             }
         }
@@ -67,20 +68,20 @@ namespace Library.BLL.Services
             }
             catch(Exception e)
             {
-                logger.LogError(e.Message);
+                logger.LogError(e.ToString());
                 return false;
             }
         }
 
         Book IBookService.GetById(Guid id)
         {
-            return context.Books.Find(id);
+            Book book = context.Books.Include(x => x.Authors).FirstOrDefault(x => x.Id == id);
+            return book;
         }
 
         public List<Book> GetAll(int offset, int limit)
         {
-            //throw new Exception("AHTUNG!!!!");
-            return context.Books.Skip(offset).Take(limit).ToList();
+            return context.Books.Include(x => x.Authors).Skip(offset).Take(limit).ToList();
         }
     }
 }

@@ -4,6 +4,8 @@ using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using AutoMapper;
+using Library.API.Models;
 
 namespace Library.API.Controllers
 {
@@ -16,23 +18,41 @@ namespace Library.API.Controllers
 
         private readonly IBookService bookService;
 
-        public BooksController(ILogger<BooksController> logger, IBookService bookService)
+        private readonly IMapper mapper;
+
+        public BooksController(ILogger<BooksController> logger, IBookService bookService, IMapper mapper)
         {
             this.logger = logger;
             this.bookService = bookService;
+            this.mapper = mapper;
         }
 
         [HttpGet]
-        public List<Book> Get()
+        public ActionResult Get()
         {
             try
             {
-                return bookService.GetAll(0, 10);
+                var users = mapper.Map<List<BookAuthorModel>>(bookService.GetAll(0, 10));
+                return Ok(users);
             }
             catch (Exception ex)
             {
                 logger.LogError(ex.ToString());
-                return null;
+                return BadRequest();
+            }
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(Guid id)
+        {
+            try
+            {
+                return Ok(bookService.GetById(id));
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return BadRequest();
             }
         }
     }

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Library.DAL.Entities
 {
-    [Table("books", Schema = "public")]
+    [Table("book", Schema = "public")]
     public class Book
     {
         [Key]
@@ -15,16 +15,28 @@ namespace Library.DAL.Entities
         [Column("name")]
         public string Name { get; set; }
 
-        [Column("author_id")]
-        public Guid AuthorId { get; set; }
-
         [Column("description")]
         public string Description { get; set; }
 
         [Column("cover")]
         public byte[] Cover { get; set; }
 
+        [Column("issue_year")]
+        public string IssueYear { get; set; }
+
+        [Column("page_count")]
+        public int PageCount { get; set; }
+
+        [Column("rating")]
+        public int Rating { get; set; }
+
+        [Column("annotation")]
+        public string Annotation { get; set; }
+
         [NotMapped]
         public List<Author> Authors { get; set; } = new List<Author>();
+
+        [NotMapped]
+        public List<Edition> Editions { get; set; } = new List<Edition>();
     }
 }

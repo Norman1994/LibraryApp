@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Library.JWT;
+using AutoMapper;
+using Library.API.Utilities;
 
 namespace Library.API
 {
@@ -49,6 +51,7 @@ namespace Library.API
                 };
             });
 
+            services.AddAutoMapper(typeof(BookProfile));
             services.AddScoped<IAuthorService, AuthorService>();
             services.AddScoped<IBookService, BookService>();
             services.AddScoped<IUserService, UserService>();
