@@ -3,6 +3,8 @@ using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using System;
+using Library.API.Models;
 
 namespace Library.API.Controllers
 {
@@ -19,10 +21,34 @@ namespace Library.API.Controllers
             this.authorService = authorService;
         }
 
-        [HttpGet]
-        public List<Author> Get()
+        [HttpGet("getall")]
+        public IActionResult GetAll()
         {
-            return authorService.GetAuthors(0, 10);
+            return Ok(authorService.GetAuthors(0, 10));
+        }
+
+        [HttpGet("getbyid")]
+        public IActionResult GetById(Guid id)
+        {
+            return Ok(authorService.GetById(id));
+        }
+
+        [HttpPost("create")]
+        public IActionResult Create(AuthorViewModel author)
+        {
+            return Ok();
+        }
+
+        [HttpPut("edit")]
+        public IActionResult Edit(AuthorViewModel author)
+        {
+            return Ok();
+        }
+
+        [HttpDelete("delete")]
+        public IActionResult Delete(Guid id)
+        {
+            return Ok();
         }
     }
 }
