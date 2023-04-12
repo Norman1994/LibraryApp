@@ -3,14 +3,9 @@ using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
-<<<<<<< Updated upstream
-using System;
-using Library.API.Models;
-=======
 using AutoMapper;
 using Library.API.Models;
 using System;
->>>>>>> Stashed changes
 
 namespace Library.API.Controllers
 {
@@ -31,36 +26,6 @@ namespace Library.API.Controllers
             this.mapper = mapper;
         }
 
-<<<<<<< Updated upstream
-        [HttpGet("getall")]
-        public IActionResult GetAll()
-        {
-            return Ok(authorService.GetAuthors(0, 10));
-        }
-
-        [HttpGet("getbyid")]
-        public IActionResult GetById(Guid id)
-        {
-            return Ok(authorService.GetById(id));
-        }
-
-        [HttpPost("create")]
-        public IActionResult Create(AuthorViewModel author)
-        {
-            return Ok();
-        }
-
-        [HttpPut("edit")]
-        public IActionResult Edit(AuthorViewModel author)
-        {
-            return Ok();
-        }
-
-        [HttpDelete("delete")]
-        public IActionResult Delete(Guid id)
-        {
-            return Ok();
-=======
         [HttpGet]
         public ActionResult Get()
         {
@@ -131,7 +96,6 @@ namespace Library.API.Controllers
                 logger.LogError(ex.ToString());
                 return BadRequest();
             }
->>>>>>> Stashed changes
         }
     }
 }
