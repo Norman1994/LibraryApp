@@ -1,11 +1,11 @@
 ﻿using System;
 using Library.BLL.Services;
-using Library.DAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Library.API.Models;
+using Library.BLL.Dto;
 
 namespace Library.API.Controllers
 {
@@ -32,8 +32,8 @@ namespace Library.API.Controllers
         {
             try
             {
-                var users = mapper.Map<List<BookAuthorModel>>(bookService.GetAll(0, 10));
-                return Ok(users);
+                var books = mapper.Map<List<BookViewModel>>(bookService.GetAll(0, 10));
+                return Ok(books);
             }
             catch (Exception ex)
             {
@@ -47,7 +47,37 @@ namespace Library.API.Controllers
         {
             try
             {
-                return Ok(bookService.GetById(id));
+                var bookInfo = mapper.Map<BookViewModel>(bookService.GetById(id));
+                return Ok(bookInfo);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return BadRequest();
+            }
+        }
+
+        [HttpPost("addbook")]
+        public ActionResult AddBook(BookCreateUpdateModel newBook)
+        {
+            try
+            {
+                /*Book book = new Book
+                {
+                    Id = Guid.NewGuid(),
+                    Description = model.Description,
+                    Annotation = model.Annotation,
+                    IssueYear = model.IssueYear,
+                    Name = model.Name,
+                    PageCount = model.PageCount
+                
+                };*/
+
+                BookDto book = mapper.Map<BookDto>(newBook);
+                bool result = bookService.Create(book);
+
+                //var bookInfo = mapper.Map<BookViewModel>(bookService.GetById(id));
+                return Ok(result);
             }
             catch (Exception ex)
             {

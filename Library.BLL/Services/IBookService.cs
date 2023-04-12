@@ -1,12 +1,13 @@
 ﻿using System;
 using Library.DAL.Entities;
 using System.Collections.Generic;
+using Library.BLL.Dto;
 
 namespace Library.BLL.Services
 {
     public interface IBookService
     {
-        bool Create(Book book);
+        bool Create(BookDto book);
 
         bool Update(Book book);
 

@@ -11,6 +11,8 @@ namespace Library.DAL
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
+
+        //public DbSet<AuthorBook> AuthorsBooks { get; set; }
         public DbSet<UserInfo> Users { get; set; }
         public DbSet<Edition> Edtions { get; set; }
 

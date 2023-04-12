@@ -4,6 +4,7 @@ using System.Linq;
 using Library.DAL.Entities;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace Library.BLL.Services
 {
@@ -78,7 +79,7 @@ namespace Library.BLL.Services
 
         public List<Author> GetAuthors(int offset, int limit)
         {
-            return context.Authors.Skip(offset).Take(limit).ToList();
+            return context.Authors.Include(x => x.Books).Skip(offset).Take(limit).ToList();
         }
 
         public Author GetById(Guid id)

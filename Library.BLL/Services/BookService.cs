@@ -5,6 +5,7 @@ using Library.DAL.Entities;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Library.BLL.Dto;
 
 namespace Library.BLL.Services
 {
@@ -17,14 +18,29 @@ namespace Library.BLL.Services
             this.context = context;
             this.logger = logger;
         }
-        public bool Create(Book book)
+        public bool Create(BookDto bookDto)
         {
             try
             {
                 using (context)
                 {
-                    context.Books.Add(book);
+                    List<Author> authors = new List<Author>();
+                    bookDto.AuthorsIds.ForEach((x) => { authors.Add(context.Authors.Find(x)); });
+
+                    //Author author = book.Authors.FirstOrDefault();
+                    //book.Authors.Clear();
+                    context.Books.Add(new Book
+                    { 
+                        Name = bookDto.Name,
+                        Annotation = bookDto.Annotation,
+                        Description = bookDto.Description,
+                        IssueYear = bookDto.IssueYear,
+                        PageCount = bookDto.PageCount,
+                        Rating = bookDto.Rating,
+                        Authors = authors
+                    });
                     context.SaveChanges();
+
                 }
                 return true;
             }
@@ -75,8 +91,7 @@ namespace Library.BLL.Services
 
         Book IBookService.GetById(Guid id)
         {
-            Book book = context.Books.Include(x => x.Authors).FirstOrDefault(x => x.Id == id);
-            return book;
+            return context.Books.Include(x => x.Authors).FirstOrDefault(x => x.Id == id);
         }
 
         public List<Book> GetAll(int offset, int limit)
