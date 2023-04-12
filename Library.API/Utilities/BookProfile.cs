@@ -29,8 +29,16 @@ namespace Library.API.Utilities
                 .ForMember(dest => dest.Rating, opt => opt.MapFrom(c => c.Rating))
                 .ForMember(dest => dest.Annotation, opt => opt.MapFrom(c => c.Annotation))
                 .ForMember(dest => dest.Cover, opt => opt.MapFrom(c => c.Cover))
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(c => c.Description))
-;
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(c => c.Description));
+
+            CreateMap<BookDto, Book>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(c => c.Id))
+                .ForMember(dest => dest.Name, opt => opt.MapFrom(c => c.Name))
+                .ForMember(dest => dest.IssueYear, opt => opt.MapFrom(c => c.IssueYear))
+                .ForMember(dest => dest.Rating, opt => opt.MapFrom(c => c.Rating))
+                .ForMember(dest => dest.Annotation, opt => opt.MapFrom(c => c.Annotation))
+                .ForMember(dest => dest.Cover, opt => opt.MapFrom(c => c.Cover))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(c => c.Description));
 
             CreateMap<AuthorModel, Author>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(c => c.Id))

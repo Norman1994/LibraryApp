@@ -5,6 +5,8 @@ using Library.DAL.Entities;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
+using Library.BLL.Dto;
+using AutoMapper;
 
 namespace Library.BLL.Services
 {
@@ -12,19 +14,23 @@ namespace Library.BLL.Services
     {
         private readonly ApplicationContext context;
         private readonly ILogger<AuthorService> logger;
-        public AuthorService(ApplicationContext context, ILogger<AuthorService> logger)
+        private readonly IMapper mapper;
+        public AuthorService(ApplicationContext context, ILogger<AuthorService> logger, IMapper mapper)
         {
             this.context = context;
             this.logger = logger;
+            this.mapper = mapper;
         }
 
-        public bool Create(Author author)
+        public bool Create(AuthorDto authorDto)
         {
             try
             {
                 using (context)
                 {
-                    context.Authors.Add(author);
+                    Author newAuthor = mapper.Map<Author>(authorDto);
+
+                    context.Authors.Add(newAuthor);
                     context.SaveChanges();
                 }
                 return true;
@@ -36,14 +42,18 @@ namespace Library.BLL.Services
             }
         }
 
-        public bool Update(Author author)
+        public bool Update(AuthorDto authorDto)
         {
             try
             {
                 using (context)
                 {
-                    context.Authors.Update(author);
+                    Author newAuthor = context.Authors.Where(x => x.Id == authorDto.Id).FirstOrDefault();
+                    newAuthor = mapper.Map<Author>(authorDto);
+
+                    context.Authors.Update(newAuthor);
                     context.SaveChanges();
+
                     return true;
                 }
             }

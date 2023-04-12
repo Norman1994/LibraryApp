@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using AutoMapper;
 using Library.API.Models;
 using System;
+using Library.BLL.Dto;
 
 namespace Library.API.Controllers
 {
@@ -31,7 +32,7 @@ namespace Library.API.Controllers
         {
             try
             {
-                var authors = mapper.Map<List<AuthorModel>>(authorService.GetAuthors(0, 10));
+                var authors = mapper.Map<List<AuthorViewModel>>(authorService.GetAuthors(0, 10));
                 return Ok(authors);
             }
             catch (Exception ex)
@@ -46,7 +47,7 @@ namespace Library.API.Controllers
         {
             try
             {
-                var author = mapper.Map<AuthorModel>(authorService.GetById(authorId));
+                var author = mapper.Map<AuthorViewModel>(authorService.GetById(authorId));
                 return Ok(author);
             }
             catch (Exception ex)
@@ -61,15 +62,10 @@ namespace Library.API.Controllers
         {
             try
             {
-                Author author = new Author
-                {
-                    Id = Guid.NewGuid(),
-                    FirstName = model.FirstName,
-                    LastName = model.LastName
-                };
+                AuthorDto author = mapper.Map<AuthorDto>(model);
+                var result = authorService.Create(author);
 
-                var newAuthor = mapper.Map<bool>(authorService.Create(author));
-                return Ok(newAuthor);
+                return Ok(result);
             }
             catch (Exception ex)
             {
@@ -83,13 +79,9 @@ namespace Library.API.Controllers
         {
             try
             {
-                Author author = new Author
-                {
-                    FirstName = model.FirstName,
-                    LastName = model.LastName
-                };
-                var newAuthor = mapper.Map<bool>(authorService.Update(author));
-                return Ok(newAuthor);
+                AuthorDto editAuthor = mapper.Map<AuthorDto>(model);
+                var result = authorService.Update(editAuthor);
+                return Ok(result);
             }
             catch (Exception ex)
             {

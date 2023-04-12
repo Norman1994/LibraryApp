@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Library.BLL.Dto;
+using AutoMapper;
 
 namespace Library.BLL.Services
 {
@@ -13,10 +14,12 @@ namespace Library.BLL.Services
     {
         private readonly ApplicationContext context;
         private readonly ILogger<BookService> logger;
-        public BookService(ApplicationContext context, ILogger<BookService> logger)
+        private readonly IMapper mapper;
+        public BookService(ApplicationContext context, ILogger<BookService> logger, IMapper mapper)
         {
             this.context = context;
             this.logger = logger;
+            this.mapper = mapper;
         }
         public bool Create(BookDto bookDto)
         {
@@ -27,18 +30,10 @@ namespace Library.BLL.Services
                     List<Author> authors = new List<Author>();
                     bookDto.AuthorsIds.ForEach((x) => { authors.Add(context.Authors.Find(x)); });
 
-                    //Author author = book.Authors.FirstOrDefault();
-                    //book.Authors.Clear();
-                    context.Books.Add(new Book
-                    { 
-                        Name = bookDto.Name,
-                        Annotation = bookDto.Annotation,
-                        Description = bookDto.Description,
-                        IssueYear = bookDto.IssueYear,
-                        PageCount = bookDto.PageCount,
-                        Rating = bookDto.Rating,
-                        Authors = authors
-                    });
+                    Book newBook = mapper.Map<Book>(bookDto);
+                    newBook.Authors = authors;
+
+                    context.Books.Add(newBook);
                     context.SaveChanges();
 
                 }

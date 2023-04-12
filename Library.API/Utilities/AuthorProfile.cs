@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Library.API.Models;
+using Library.BLL.Dto;
 using Library.DAL.Entities;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,20 @@ namespace Library.API.Utilities
     {
         public AuthorProfile()
         {
-            CreateMap<Author, AuthorModel>()
+            CreateMap<Author, AuthorViewModel>()
                    .ForMember(dest => dest.Id, opt => opt.MapFrom(c => c.Id))
                    .ForMember(dest => dest.FirstName, opt => opt.MapFrom(c => c.FirstName))
                    .ForMember(dest => dest.LastName, opt => opt.MapFrom(c => c.LastName))
-                   .ForMember(dest => dest.BookName, opt => opt.MapFrom(c => String.Join(", ", c.Books.Select(x => x.Name).ToArray())));
+                   .ForMember(dest => dest.BookName, opt => opt.MapFrom(c => string.Join(", ", c.Books.Select(x => x.Name).ToArray())));
+
+            CreateMap<AuthorModel, AuthorDto>()
+                    .ForMember(dest => dest.Id, opt => opt.MapFrom(c => c.Id))
+                   .ForMember(dest => dest.FirstName, opt => opt.MapFrom(c => c.FirstName))
+                   .ForMember(dest => dest.LastName, opt => opt.MapFrom(c => c.LastName));
+
+            CreateMap<AuthorDto, Author>()
+                   .ForMember(dest => dest.FirstName, opt => opt.MapFrom(c => c.FirstName))
+                   .ForMember(dest => dest.LastName, opt => opt.MapFrom(c => c.LastName));
         }
     }
 }

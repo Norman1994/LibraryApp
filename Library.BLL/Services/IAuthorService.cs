@@ -1,14 +1,15 @@
 ﻿using System;
 using Library.DAL.Entities;
 using System.Collections.Generic;
+using Library.BLL.Dto;
 
 namespace Library.BLL.Services
 {
     public interface IAuthorService
     {
-        bool Create(Author author);
+        bool Create(AuthorDto authorDto);
 
-        bool Update(Author author);
+        bool Update(AuthorDto authorDto);
 
         bool? Delete(Guid id);
 

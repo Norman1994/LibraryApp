@@ -62,21 +62,9 @@ namespace Library.API.Controllers
         {
             try
             {
-                /*Book book = new Book
-                {
-                    Id = Guid.NewGuid(),
-                    Description = model.Description,
-                    Annotation = model.Annotation,
-                    IssueYear = model.IssueYear,
-                    Name = model.Name,
-                    PageCount = model.PageCount
-                
-                };*/
-
                 BookDto book = mapper.Map<BookDto>(newBook);
                 bool result = bookService.Create(book);
 
-                //var bookInfo = mapper.Map<BookViewModel>(bookService.GetById(id));
                 return Ok(result);
             }
             catch (Exception ex)
