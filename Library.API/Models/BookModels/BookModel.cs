@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library.DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -22,5 +23,7 @@ namespace Library.API.Models
         public string Description { get; set; }
 
         public byte[] Cover { get; set; }
+
+        public List<Edition> Editions = new List<Edition>();
     }
 }

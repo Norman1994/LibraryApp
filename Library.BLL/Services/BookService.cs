@@ -44,14 +44,14 @@ namespace Library.BLL.Services
                 logger.LogError(e.ToString());
                 return false;
             }
-            
         }
 
-        public bool Update(Book book)
+        public bool Update(BookDto bookDto)
         {
             try
             {
-                context.Books.Update(book);
+
+                //context.Books.Update(book);
                 return true;
             }
             catch (Exception e)
@@ -86,12 +86,12 @@ namespace Library.BLL.Services
 
         Book IBookService.GetById(Guid id)
         {
-            return context.Books.Include(x => x.Authors).FirstOrDefault(x => x.Id == id);
+            return context.Books.Include(x => x.Authors).Include(x => x.Editions).FirstOrDefault(x => x.Id == id);
         }
 
         public List<Book> GetAll(int offset, int limit)
         {
-            return context.Books.Include(x => x.Authors).Skip(offset).Take(limit).ToList();
+            return context.Books.Include(x => x.Authors).Include(x => x.Editions).Skip(offset).Take(limit).ToList();
         }
     }
 }

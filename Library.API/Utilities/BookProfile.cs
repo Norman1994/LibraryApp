@@ -19,6 +19,7 @@ namespace Library.API.Utilities
                     .ForMember(dest => dest.IssueYear, opt => opt.MapFrom(c => c.IssueYear))
                     .ForMember(dest => dest.Rating, opt => opt.MapFrom(c => c.Rating))
                     .ForMember(dest => dest.Annotation, opt => opt.MapFrom(c => c.Annotation))
+                    .ForMember(dest => dest.Editions, opt => opt.MapFrom(c => c.Editions))
                     .ForMember(dest => dest.AuthorName, opt => opt.MapFrom(c =>  String.Join(", ", c.Authors.Select(x => x.FirstName + " " + x.LastName).ToArray())));
 
             CreateMap<BookCreateUpdateModel, BookDto>()

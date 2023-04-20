@@ -11,8 +11,6 @@ namespace Library.DAL
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
-
-        //public DbSet<AuthorBook> AuthorsBooks { get; set; }
         public DbSet<UserInfo> Users { get; set; }
         public DbSet<Edition> Edtions { get; set; }
 
@@ -25,6 +23,11 @@ namespace Library.DAL
                 .HasMany(c => c.Authors)
                 .WithMany(s => s.Books)
                 .UsingEntity(j => j.ToTable("authorbook"));
+
+            modelBuilder.Entity<Book>()
+                .HasMany(c => c.Editions)
+                .WithMany(s => s.Books)
+                .UsingEntity(j => j.ToTable("editionbook"));
 
             modelBuilder.Entity<UserInfo>().HasData(
                 new UserInfo
@@ -63,27 +66,25 @@ namespace Library.DAL
             Guid sorokinsBook1Id = Guid.NewGuid();
             Guid sorokinsBook2Id = Guid.NewGuid();
 
-            Author sorokin = new Author
-            {
-                Id = sorokinsId,
-                FirstName = "Vladimir",
-                LastName = "Sorokin",
-            };
-            Book sorokinsBook1 = new Book
-            {
-                Id = sorokinsBook1Id,
-                Name = "Goluboe Salo"
-            };
-            Book sorokinsBook2 = new Book
-            {
-                Id = sorokinsBook2Id,
-                Name = "Norma"
-            };
+            //Author sorokin = new Author
+            //{
+            //    Id = sorokinsId,
+            //    FirstName = "Vladimir",
+            //    LastName = "Sorokin",
+            //};
+            //Book sorokinsBook1 = new Book
+            //{
+            //    Id = sorokinsBook1Id,
+            //    Name = "Goluboe Salo"
+            //};
+            //Book sorokinsBook2 = new Book
+            //{
+            //    Id = sorokinsBook2Id,
+            //    Name = "Norma"
+            //};
 
-            modelBuilder.Entity<Author>().HasData( sorokin );
-            modelBuilder.Entity<Book>().HasData(sorokinsBook1, sorokinsBook2);
-
-            
+            //modelBuilder.Entity<Author>().HasData( sorokin );
+            //modelBuilder.Entity<Book>().HasData(sorokinsBook1, sorokinsBook2);
         }
     }
 }

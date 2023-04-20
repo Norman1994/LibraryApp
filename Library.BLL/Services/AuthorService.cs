@@ -48,10 +48,9 @@ namespace Library.BLL.Services
             {
                 using (context)
                 {
-                    Author newAuthor = context.Authors.Where(x => x.Id == authorDto.Id).FirstOrDefault();
-                    newAuthor = mapper.Map<Author>(authorDto);
+                    Author author = mapper.Map<Author>(authorDto);
 
-                    context.Authors.Update(newAuthor);
+                    context.Authors.Update(author);
                     context.SaveChanges();
 
                     return true;

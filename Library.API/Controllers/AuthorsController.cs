@@ -89,5 +89,20 @@ namespace Library.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpDelete("delete")]
+        public ActionResult Delete(Guid id)
+        {
+            try
+            {
+                var result = authorService.Delete(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return BadRequest();
+            }
+        }
     }
 }

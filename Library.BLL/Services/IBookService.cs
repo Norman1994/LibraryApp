@@ -9,7 +9,7 @@ namespace Library.BLL.Services
     {
         bool Create(BookDto book);
 
-        bool Update(Book book);
+        bool Update(BookDto book);
 
         bool? Delete(Guid id);
 

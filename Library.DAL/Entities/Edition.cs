@@ -16,14 +16,16 @@ namespace Library.DAL.Entities
         [Column("description")]
         public string Description { get; set; }
 
-        [Column("book_id")]
-        public Guid BookId { get; set; }
-
         [Column("cover")]
         public byte[] Cover { get; set; }
 
         [Column("issue_year")]
         public string IssueYear { get; set; }
 
+        [Column("publisher")]
+        public string Publisher { get; set; }
+
+        [NotMapped]
+        public List<Book> Books { get; set; } = new List<Book>();
     }
 }

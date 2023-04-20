@@ -73,5 +73,22 @@ namespace Library.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpPost("updatebook")]
+        public ActionResult UpdateBook(BookCreateUpdateModel updatedBook)
+        {
+            try
+            {
+                BookDto book = mapper.Map<BookDto>(updatedBook);
+                bool result = bookService.Update(book);
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                logger.LogError(ex.ToString());
+                return BadRequest();
+            }
+        }
     }
 }
