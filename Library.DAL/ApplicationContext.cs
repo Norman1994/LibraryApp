@@ -14,6 +14,11 @@ namespace Library.DAL
         public DbSet<UserInfo> Users { get; set; }
         public DbSet<Edition> Edtions { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseLazyLoadingProxies();
+        }
+
         public ApplicationContext(DbContextOptions<ApplicationContext> options) : base(options)
         {
         }
@@ -65,26 +70,6 @@ namespace Library.DAL
             Guid sorokinsId = Guid.NewGuid();
             Guid sorokinsBook1Id = Guid.NewGuid();
             Guid sorokinsBook2Id = Guid.NewGuid();
-
-            //Author sorokin = new Author
-            //{
-            //    Id = sorokinsId,
-            //    FirstName = "Vladimir",
-            //    LastName = "Sorokin",
-            //};
-            //Book sorokinsBook1 = new Book
-            //{
-            //    Id = sorokinsBook1Id,
-            //    Name = "Goluboe Salo"
-            //};
-            //Book sorokinsBook2 = new Book
-            //{
-            //    Id = sorokinsBook2Id,
-            //    Name = "Norma"
-            //};
-
-            //modelBuilder.Entity<Author>().HasData( sorokin );
-            //modelBuilder.Entity<Book>().HasData(sorokinsBook1, sorokinsBook2);
         }
     }
 }

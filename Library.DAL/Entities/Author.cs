@@ -19,6 +19,6 @@ namespace Library.DAL.Entities
         public string LastName { get; set; }
 
         [NotMapped]
-        public List<Book> Books { get; set; } = new List<Book>();
+        public virtual List<Book> Books { get; set; } = new List<Book>();
     }
 }

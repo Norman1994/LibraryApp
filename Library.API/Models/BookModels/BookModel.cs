@@ -24,6 +24,6 @@ namespace Library.API.Models
 
         public byte[] Cover { get; set; }
 
-        public List<Edition> Editions = new List<Edition>();
+        
     }
 }

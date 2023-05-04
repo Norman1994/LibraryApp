@@ -91,7 +91,8 @@ namespace Library.BLL.Services
 
         public List<Book> GetAll(int offset, int limit)
         {
-            return context.Books.Include(x => x.Authors).Include(x => x.Editions).Skip(offset).Take(limit).ToList();
+            //return context.Books.Include(x => x.Authors).Include(x => x.Editions).Skip(offset).Take(limit).ToList();
+            return context.Books.Skip(offset).Take(limit).ToList();
         }
     }
 }

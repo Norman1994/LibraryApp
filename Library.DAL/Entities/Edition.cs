@@ -25,7 +25,10 @@ namespace Library.DAL.Entities
         [Column("publisher")]
         public string Publisher { get; set; }
 
+        [Column("code")]
+        public string Code { get; set; }
+
         [NotMapped]
-        public List<Book> Books { get; set; } = new List<Book>();
+        public virtual List<Book> Books { get; set; } = new List<Book>();
     }
 }

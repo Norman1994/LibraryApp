@@ -34,9 +34,8 @@ namespace Library.DAL.Entities
         public string Annotation { get; set; }
 
         [NotMapped]
-        public List<Author> Authors { get; set; } = new List<Author>();
-
+        public virtual List<Author> Authors { get; set; } = new List<Author>();
         [NotMapped]
-        public List<Edition> Editions { get; set; } = new List<Edition>();
+        public virtual List<Edition> Editions { get; set; } = new List<Edition>();
     }
 }
